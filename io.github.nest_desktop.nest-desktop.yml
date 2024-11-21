@@ -30,7 +30,7 @@ modules:
         commit: 83271ca21ad4515c634b3fd844c8669302b177b4
       - type: file
         url: https://github.com/nest-desktop/nest-desktop-electron/releases/download/v4.0.1/nest-desktop-4.0.1.tar.gz
-        sha256: 063d94e40cb16e23aa7009db37fc04d4bbefb71e9ee8f8194a33ba1748241da4
+        sha256: 9b2fbf8f0b618a7336e381d10a4358f44768380e8ac7502585b4fee62dc66b67
         dest-filename: nest-desktop.tar.gz
       - type: script
         dest-filename: run.sh
