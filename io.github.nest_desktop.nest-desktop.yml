@@ -27,10 +27,10 @@ modules:
     sources:
       - type: git
         url: https://github.com/nest-desktop/nest-desktop
-        commit: 12f27f9acf484026e7687b04da337deeb4751d84
+        commit: 83271ca21ad4515c634b3fd844c8669302b177b4
       - type: file
-        url: https://github.com/nest-desktop/nest-desktop-electron/releases/download/v4.0.0/nest-desktop-4.0.0.tar.gz
-        sha256: 9f83f4bed4ae74428518051e73b4c32e1090a04e46dc41d2187f6cf97b2d264b
+        url: https://github.com/nest-desktop/nest-desktop-electron/releases/download/v4.0.1/nest-desktop-4.0.1.tar.gz
+        sha256: 7f3766886332db8608d03ee96d516b1d605a3c56a3486889cb39828492a3daf1
         dest-filename: nest-desktop.tar.gz
       - type: script
         dest-filename: run.sh
