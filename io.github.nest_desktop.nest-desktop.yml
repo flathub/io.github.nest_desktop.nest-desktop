@@ -28,7 +28,7 @@ modules:
       - type: git
         url: https://github.com/nest-desktop/nest-desktop
         tag: v4.0.2
-        commit: a7de0515ecf1f8ad35a8e241b63dfc241c73197a
+        commit: 895d40540dbb0aa641f0dfdd41feff8a74d056ec
       - type: file
         url: https://github.com/nest-desktop/nest-desktop-electron/releases/download/v4.0.2/nest-desktop-4.0.2.tar.gz
         sha256: c0bb67b8c856d4557dcfefd8c544781cc02d3db0d7378a191bc7ea95627003ef
