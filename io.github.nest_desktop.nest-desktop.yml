@@ -47,6 +47,12 @@ modules:
       - install -Dm0755 nest-desktop.desktop "${FLATPAK_DEST}/share/applications/nest-desktop.desktop"
   - modules/python3-requirements_pynest.json
   - modules/python3-requirements_nest_server.json
+  - name: libgsl
+    buildsystem: autotools
+    sources:
+    - type: archive
+      url: https://ftp.fau.de/gnu/gsl/gsl-2.8.tar.gz
+      sha256: 6a99eeed15632c6354895b1dd542ed5a855c0f15d9ad1326c6fe2b2c9e423190
   - name: nest-simulator
     buildsystem: cmake-ninja
     sources:
