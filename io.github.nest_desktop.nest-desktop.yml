@@ -22,6 +22,30 @@ finish-args:
   # Allow communication with network
   - --share=network
 modules:
+  - name: boost
+    buildsystem: simple
+    build-commands:
+      - ./bootstrap.sh
+      - ./b2 install --prefix=/app/boost
+    sources:
+    - type: archive
+      url: https://archives.boost.io/release/1.89.0/source/boost_1_89_0.tar.gz
+      sha256: 9de758db755e8330a01d995b0a24d09798048400ac25c03fc5ea9be364b13c93
+  - name: libgsl
+    buildsystem: autotools
+    sources:
+    - type: archive
+      url: https://ftp.fau.de/gnu/gsl/gsl-2.8.tar.gz
+      sha256: 6a99eeed15632c6354895b1dd542ed5a855c0f15d9ad1326c6fe2b2c9e423190
+  - modules/python3-requirements_pynest.json
+  - modules/python3-requirements_nest_server.json
+  - name: nest-simulator
+    buildsystem: cmake-ninja
+    sources:
+      - type: git
+        url: https://github.com/nest/nest-simulator
+        tag: v3.9
+        commit: a32cd8728fbb100cc1ce2bc7955196b2bd15403c
   - name: nest-desktop
     buildsystem: simple
     sources:
@@ -45,18 +69,3 @@ modules:
       - install -Dm644 icons/icon-512x512.png /app/share/icons/hicolor/512x512/apps/nest-desktop.png
       - install -Dm644 nest-desktop.metainfo.xml ${FLATPAK_DEST}/share/metainfo/nest-desktop.metainfo.xml
       - install -Dm0755 nest-desktop.desktop "${FLATPAK_DEST}/share/applications/nest-desktop.desktop"
-  - modules/python3-requirements_pynest.json
-  - modules/python3-requirements_nest_server.json
-  - name: libgsl
-    buildsystem: autotools
-    sources:
-    - type: archive
-      url: https://ftp.fau.de/gnu/gsl/gsl-2.8.tar.gz
-      sha256: 6a99eeed15632c6354895b1dd542ed5a855c0f15d9ad1326c6fe2b2c9e423190
-  - name: nest-simulator
-    buildsystem: cmake-ninja
-    sources:
-      - type: git
-        url: https://github.com/nest/nest-simulator
-        tag: v3.8
-        commit: 6dca9500e512da50fa730a7b62ce4b05c77e2bfd
