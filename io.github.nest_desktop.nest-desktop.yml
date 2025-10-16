@@ -12,6 +12,8 @@ rename-appdata-file: nest-desktop.metainfo.xml
 finish-args:
   # X Rendering
   - --socket=x11
+  # Wayland
+  - --socket=wayland
   - --share=ipc
   # Open GL
   - --device=dri
@@ -21,6 +23,8 @@ finish-args:
   - --filesystem=home
   # Allow communication with network
   - --share=network
+  # To ensure proper mouse cursor scaling on HiDPI displays under Wayland
+  - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
 modules:
   - name: boost
     buildsystem: simple
@@ -51,10 +55,10 @@ modules:
     sources:
       - type: git
         url: https://github.com/nest-desktop/nest-desktop
-        commit: bbe37a26bd02fd505b71f40ece67ae03ca457e03
+        commit: 3fd1060af8ce46e807afcd8b7289a2868a91af3c
       - type: file
-        url: https://github.com/nest-desktop/nest-desktop-electron/releases/download/v4.1.0/nest-desktop-4.1.0.tar.gz
-        sha256: b070dffd9aab6936bc039053a58f6efd53f7526ebb31fdf45f18f868abd56527
+        url: https://github.com/nest-desktop/nest-desktop-electron/releases/download/v4.2.0/nest-desktop-4.2.0.tar.gz
+        sha256: 701bd0d4f282a4dc172584d2f7b0fc83b6ac8502831ae30d235c17669643d7e7
         dest-filename: nest-desktop.tar.gz
       - type: script
         dest-filename: run.sh
