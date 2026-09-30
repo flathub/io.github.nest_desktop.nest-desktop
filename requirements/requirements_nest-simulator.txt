@@ -1,0 +1,5 @@
+# Required Python packages for NEST Simulator.
+
+scikit-build-core>=1.1
+meson-python>=0.22
+numpy>=2.5

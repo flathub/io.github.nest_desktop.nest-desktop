@@ -10,19 +10,17 @@ rename-icon: nest-desktop
 rename-desktop-file: nest-desktop.desktop
 rename-appdata-file: nest-desktop.metainfo.xml
 finish-args:
-  # X Rendering
-  - --socket=fallback-x11
-  # Wayland
-  - --socket=wayland
+  # X11 + XShm access
   - --share=ipc
-  # Open GL
+  - --socket=fallback-x11
+  # Wayland access
+  - --socket=wayland
+  # GPU acceleration if needed
   - --device=dri
-  # Audio output
-  - --socket=pulseaudio
-  # Read/write home directory access
-  - --filesystem=home
-  # Allow communication with network
+  # Needs to talk to the network:
   - --share=network
+  # Needs to save files locally
+  - --filesystem=xdg-documents
   # To ensure proper mouse cursor scaling on HiDPI displays under Wayland
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
 modules:
@@ -33,23 +31,23 @@ modules:
       - ./b2 install --prefix=/app/boost
     sources:
     - type: archive
-      url: https://archives.boost.io/release/1.89.0/source/boost_1_89_0.tar.gz
-      sha256: 9de758db755e8330a01d995b0a24d09798048400ac25c03fc5ea9be364b13c93
+      url: https://archives.boost.io/release/1.92.0/source/boost_1_92_0.tar.gz
+      sha256: c4a3b310ddd2472416e091067166b0713be97c63f38c212c484ada022fd296ce
   - name: libgsl
     buildsystem: autotools
     sources:
     - type: archive
       url: https://ftp.fau.de/gnu/gsl/gsl-2.8.tar.gz
       sha256: 6a99eeed15632c6354895b1dd542ed5a855c0f15d9ad1326c6fe2b2c9e423190
-  - modules/python3-requirements_pynest.json
-  - modules/python3-requirements_nest_server.json
+  - modules/python3-requirements_nest-simulator.yaml
   - name: nest-simulator
     buildsystem: cmake-ninja
     sources:
       - type: git
         url: https://github.com/nest/nest-simulator
-        tag: v3.9
-        commit: a32cd8728fbb100cc1ce2bc7955196b2bd15403c
+        tag: v3.10
+        commit: acca9704da248750219a027db99fec6cd1f9052a
+  - modules/python3-requirements_nest-server.yaml
   - name: nest-desktop
     buildsystem: simple
     sources:
@@ -68,8 +66,14 @@ modules:
       - tar -zxf nest-desktop.tar.gz -C ${FLATPAK_DEST}
       - mv ${FLATPAK_DEST}/nest-desktop* ${FLATPAK_DEST}/main
       - install -Dm0755 run.sh "${FLATPAK_DEST}/bin/nest-desktop"
-      - install -Dm0755 scripts/nest-desktop-launch "${FLATPAK_DEST}/bin/nest-desktop-launch"
       - install -Dm644 icons/icon-256x256.png /app/share/icons/hicolor/256x256/apps/nest-desktop.png
       - install -Dm644 icons/icon-512x512.png /app/share/icons/hicolor/512x512/apps/nest-desktop.png
       - install -Dm644 nest-desktop.metainfo.xml ${FLATPAK_DEST}/share/metainfo/nest-desktop.metainfo.xml
       - install -Dm0755 nest-desktop.desktop "${FLATPAK_DEST}/share/applications/nest-desktop.desktop"
+  - name: nest-desktop-launch
+    buildsystem: simple
+    sources:
+      - type: file
+        path: ./scripts/nest-desktop-launch
+    build-commands:
+      - install -Dm0755 nest-desktop-launch "${FLATPAK_DEST}/bin/nest-desktop-launch"
