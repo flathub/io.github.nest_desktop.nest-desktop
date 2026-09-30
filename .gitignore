@@ -2,3 +2,5 @@
 _build/
 .flatpak-builder/
 builddir/
+local/
+repo/
