@@ -1,3 +1,4 @@
 # Flatpak building folder
+_build/
 .flatpak-builder/
 builddir/
