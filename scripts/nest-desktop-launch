@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# export PYTHONPATH=/app/lib/python3.12/site-packages:$PYTHONPATH
-# export PYTHONPATH=/app/lib64/python3.12/site-packages:$PYTHONPATH
-
 # export NESTML_MODULES_PATH="${NESTML_MODULES_PATH:-/tmp/nestmlmodules}"
 # export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${NESTML_MODULES_PATH}
 
