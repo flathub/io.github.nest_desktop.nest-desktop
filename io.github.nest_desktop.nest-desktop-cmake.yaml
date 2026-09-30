@@ -73,7 +73,7 @@ modules:
   - name: nest-desktop-launch
     buildsystem: simple
     sources:
-      - type: dir
-        path: scripts
+      - type: file
+        path: ./scripts/nest-desktop-launch
     build-commands:
       - install -Dm0755 nest-desktop-launch "${FLATPAK_DEST}/bin/nest-desktop-launch"
