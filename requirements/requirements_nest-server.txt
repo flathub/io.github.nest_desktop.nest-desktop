@@ -1,0 +1,6 @@
+# Required Python packages for NEST Server.
+
+flask>=3.1
+flask-cors>=6.0
+gunicorn>=26.2
+restrictedpython>=8.5
