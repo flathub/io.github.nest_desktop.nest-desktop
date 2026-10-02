@@ -1,4 +1,4 @@
-# Generated with flatpak-pip-generator --yaml -r requirements/requirements_nest-server.txt
+# Generated with flatpak-pip-generator --runtime org.freedesktop.Sdk//26.08 --yaml -r requirements/requirements_nest-server.txt
 name: python3-requirements_nest-server
 buildsystem: simple
 build-commands: []
