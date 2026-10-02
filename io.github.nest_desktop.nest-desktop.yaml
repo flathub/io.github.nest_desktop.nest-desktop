@@ -1,4 +1,4 @@
-id: io.github.nest_desktop.nest-desktop-26
+id: io.github.nest_desktop.nest-desktop
 runtime: org.freedesktop.Platform
 runtime-version: "26.08"
 base: org.electronjs.Electron2.BaseApp
