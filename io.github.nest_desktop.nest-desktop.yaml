@@ -1,8 +1,8 @@
-id: io.github.nest_desktop.nest-desktop
+id: io.github.nest_desktop.nest-desktop-26
 runtime: org.freedesktop.Platform
-runtime-version: "25.08"
+runtime-version: "26.08"
 base: org.electronjs.Electron2.BaseApp
-base-version: "25.08"
+base-version: "26.08"
 sdk: org.freedesktop.Sdk
 command: nest-desktop-launch
 separate-locales: false
@@ -30,6 +30,7 @@ modules:
     - type: archive
       url: https://ftp.fau.de/gnu/gsl/gsl-2.8.tar.gz
       sha256: 6a99eeed15632c6354895b1dd542ed5a855c0f15d9ad1326c6fe2b2c9e423190
+  - modules/python3-packaging.yaml
   - modules/python3-requirements_nest-simulator.yaml
   - name: python3-nest-simulator
     buildsystem: simple
