@@ -46,11 +46,11 @@ modules:
     buildsystem: simple
     build-commands:
       - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST} "nest-server==3.0.0b6" --no-build-isolation --no-deps
+        --prefix=${FLATPAK_DEST} "nest-server==3.0.0b9" --no-build-isolation --no-deps
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/50/25/0773a159454f4461d13b849e8ab55d427b8d8ef77eecf4ed853d8799a66e/nest_server-3.0.0b6-py3-none-any.whl
-        sha256: 2cf60b0fb060cb23113ea927970e0118364a0d28c5e1fa72f504cf95a1043df8
+        url: https://files.pythonhosted.org/packages/d2/5b/0ce7d0953dd0177f2dd0d82cd3bd8229fe3dcffe87ed7e6f7e181d4494f8/nest_server-3.0.0b9-py3-none-any.whl
+        sha256: d21644d449fe6aeb1772e3459ef32d9a450d37c3cb412ce15b5f8808dd9e9e82
   - name: electron-nest-desktop
     buildsystem: simple
     sources:
