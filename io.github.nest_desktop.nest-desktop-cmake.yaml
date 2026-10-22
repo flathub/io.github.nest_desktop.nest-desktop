@@ -49,7 +49,16 @@ modules:
         tag: v3.10
         commit: acca9704da248750219a027db99fec6cd1f9052a
   - modules/python3-requirements_nest-server.yaml
-  - name: nest-desktop
+  - name: python3-nest-server
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "nest-server==3.0.0b9" --no-build-isolation --no-deps
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/d2/5b/0ce7d0953dd0177f2dd0d82cd3bd8229fe3dcffe87ed7e6f7e181d4494f8/nest_server-3.0.0b9-py3-none-any.whl
+        sha256: d21644d449fe6aeb1772e3459ef32d9a450d37c3cb412ce15b5f8808dd9e9e82
+  - name: electron-nest-desktop
     buildsystem: simple
     sources:
       - type: git
